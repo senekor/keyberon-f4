@@ -3,7 +3,7 @@ use <usb-c-pill.scad>
 use <key.scad>
 include <printing.scad>
 
-nb_cols=5;
+nb_cols=6;
 nb_rows=3;
 nb_thumbs=3;
 choc=true;
@@ -11,7 +11,7 @@ choc=true;
 inter_switch_x=choc?18:19.05;
 inter_switch_y=choc?17:19.05;
 d=inter_switch_y/8;
-deltas=[0,2,6,2,-10];// column stagger
+deltas=[0,0,2*d,0,-3*d,-3*d];// column stagger
 
 rotate_thumb_switch=false;
 aligned_thumbs=false;
@@ -27,7 +27,7 @@ thickness=1.6;// plate thinkness
 case_border=3;
 rounding=2;
 switch_depth=choc?5:8;// 8 for MX, 5 for choc
-top_wide=51;
+top_wide=60;
 
 // insert hole, can be adjusted depending on the size of your insert
 // or if you use autotaping screws
