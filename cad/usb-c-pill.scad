@@ -8,7 +8,7 @@ e=0.1;
 button_height=2+thickness;
 
 module buttons() {
-     for (coord=[[2.4,-15,0], [-2.4,-15,0], [-2,-41,0]]) {
+     for (coord=[[2,-15.3,0], [-2,-15.3,0], [-1.8,-41.2,0]]) {
           translate(coord) translate([0,-e,button_height]) {
                children();
           }
@@ -16,7 +16,7 @@ module buttons() {
 }
 
 module usb_c_connector(epsilon=0) {
-     translate([0,-e+epsilon,thickness+3.2/2]) rotate([90,0,0]) linear_extrude(7.5+2*epsilon) {
+     translate([0,-e+epsilon,thickness+3.2/2]) rotate([90,0,0]) linear_extrude(8+2*epsilon) {
           rounded_square([9+2*epsilon, 3.2+2*epsilon], r=1+epsilon, center=true);
      }
 }
@@ -54,11 +54,12 @@ module usb_c_pill_pocket() {
          translate([0, 0, -10]) linear_extrude(e+thickness+10) square([width+2*e, height+2*e], center=true);
           linear_extrude(e+button_height) square([width-2, height+2*e], center=true);
      }
-     buttons() {
-          translate([0, 0, -0.1]) linear_extrude(3, scale=3) rounded_square([2+0.7, 2.9+0.7], center=true, r=2.69/2);
-     }
-     usb_c_connector(epsilon=e);
-     translate([0,1.6,0]) usb_c_connector(epsilon=e);
+     // buttons() {
+     //      translate([0, 0, -0.1]) linear_extrude(3, scale=3) rounded_square([2+0.7, 2.9+0.7], center=true, r=2.69/2);
+     // }
+     // usb_c_connector(epsilon=e);
+     // translate([0,1.6,0]) usb_c_connector(epsilon=e);
+     translate([-6,-44,-5]) cube([12,50,15]);
 }
 
 usb_c_pill();

@@ -13,14 +13,14 @@ inter_switch_y=choc?17:19.05;
 d=inter_switch_y/8;
 deltas=[0,0,2*d,0,-3*d,-3*d];// column stagger
 
-rotate_thumb_switch=false;
+rotate_thumb_switch=true;
 aligned_thumbs=false;
 center_screw=true;
-center_screw_offset=(nb_rows+0.75)*inter_switch_y;
+center_screw_offset=(nb_rows+1)*inter_switch_y+18;
 
 hand_spacing=22;
-hand_angle=30;
-top=12;// might need some tweeks if you cange hand_angle or first delta
+hand_angle=45;
+top=16;// might need some tweeks if you cange hand_angle or first delta
 
 switch_hole=choc?13.8:14;// can be adjusted for printer imprecision
 thickness=1.6;// plate thinkness
@@ -148,6 +148,7 @@ module case() {
                screw_placement() {
                     translate([0,0,-switch_depth]) cylinder(d=8.8, h=switch_depth-thickness);
                }
+               translate([-6,16.2,0.6-case_depth]) cube([12,1,3.4]);
           }
           // screw holes
           screw_placement() {
