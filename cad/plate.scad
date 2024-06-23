@@ -10,8 +10,7 @@ choc=true;
 
 inter_switch_x=choc?18:19.05;
 inter_switch_y=choc?17:19.05;
-d=inter_switch_y/8;
-deltas=[0,0,2*d,0,-3*d,-3*d];// column stagger
+deltas=[0,0,5,0,-8,-8];// column stagger
 
 rotate_thumb_switch=true;
 aligned_thumbs=false;
