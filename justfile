@@ -6,6 +6,7 @@ setup:
     rustup component add llvm-tools-preview
     cargo binstall -y cargo-binutils
     sudo dnf install -y dfu-util
+    [ -d keyberon ] || jj clone git@github.com:senekor/keyberon
 
 flash:
     cargo objcopy --bin keyberon-f4 --release -- -O binary keyberon.bin
