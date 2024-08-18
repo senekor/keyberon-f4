@@ -141,11 +141,8 @@ mod app {
         for event in c.local.debouncer.events(matrix) {
             c.local.layout.event(event);
         }
-        match c.local.layout.tick() {
-            keyberon::layout::CustomEvent::Release(()) => unsafe {
-                cortex_m::asm::bootload(0x1FFF0000 as _)
-            },
-            _ => (),
+        if let keyberon::layout::CustomEvent::Release(()) = c.local.layout.tick() {
+            unsafe { cortex_m::asm::bootload(0x1FFF0000 as _) }
         }
 
         let report: KbHidReport = c.local.layout.keycodes().collect();
