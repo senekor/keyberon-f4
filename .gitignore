@@ -3,3 +3,6 @@
 *~
 *.bin
 *.stl
+
+# pseudo-submodule
+/keyberon/
