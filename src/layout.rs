@@ -22,6 +22,9 @@ const S_C: Action = hold_tap!(k(LShift), CapsLock);
 
 const QUIT: Action = Action::MultipleKeyCodes(&[LGui, Q].as_slice());
 
+const MY_PLUS: Action = Action::ModifiedKeyCode(&(&[LShift], Equal));
+const MY_AMPRS: Action = Action::ModifiedKeyCode(&(&[LShift], Kb7));
+
 #[rustfmt::skip]
 pub static LAYERS: keyberon::layout::Layers<12, 4, 4, ()> = keyberon::layout::layout! {
     { //[+·· ···+··· ···+··· ···+··· ···+··· ···+···|···+··· ···+··· ···+··· ···+··· ···+··· ···+],
@@ -31,8 +34,8 @@ pub static LAYERS: keyberon::layout::Layers<12, 4, 4, ()> = keyberon::layout::la
         [n      n       n     LCtrl   Space    (2)   LShift    (1)    LGui      n       n       n],
     }{//[+·· ···+··· ···+··· ···+··· ···+··· ···+···|···+··· ···+··· ···+··· ···+··· ···+··· ···+],
         [t      n       $      '{'     '}'      %       @       |      '`'      #     '\''      t],
-        [t      &       !      '('     ')'     '_'      ^       =      '"'      ;       :       t],
-        [t      +       *      '['     ']'    '\\'      ~       -       <       >       ?       t],
+        [t  {MY_AMPRS}  !      '('     ')'     '_'      ^       =      '"'      ;       :       t],
+        [t  {MY_PLUS}   *      '['     ']'    '\\'      ~       -       <       >       ?       t],
         [t      t       t       t       t       t      (3)      t       t       t       t       t],
     }{//[+·· ···+··· ···+··· ···+··· ···+··· ···+···|···+··· ···+··· ···+··· ···+··· ···+··· ···+],
         [t   {QUIT}   Home     Up      End      n       5       6       7       8       9       t],
