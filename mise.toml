@@ -4,6 +4,7 @@ run = [
   "rustup component add llvm-tools-preview",
   "cargo binstall -y cargo-binutils",
   "sudo dnf install -y dfu-util",
+  "test -d keyberon || jj git clone git@github.com:senekor/keyberon",
 ]
 
 [tasks.flash]
