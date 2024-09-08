@@ -18,13 +18,14 @@ macro_rules! hold_tap {
 const A_2: Action = hold_tap!(k(LAlt), Kb2);
 const C_3: Action = hold_tap!(k(LCtrl), Kb3);
 const S_4: Action = hold_tap!(k(LShift), Kb4);
+const S_C: Action = hold_tap!(k(LShift), CapsLock);
 
 #[rustfmt::skip]
 pub static LAYERS: keyberon::layout::Layers<12, 4, 4, ()> = keyberon::layout::layout! {
     { //[+·· ···+··· ···+··· ···+··· ···+··· ···+···|···+··· ···+··· ···+··· ···+··· ···+··· ···+],
         [Escape Q       W       F       P       B       J       L       U       Y     '\'' BSpace],
         [Tab    A       R       S       T       G       M       N       E       I       O   Enter],
-        [LShift Z       X       C       D       V       K       H       ,       .       /    RAlt],
+        [{S_C}  Z       X       C       D       V       K       H       ,       .       /    RAlt],
         [n      n       n     LCtrl   Space    (2)   LShift    (1)    LGui      n       n       n],
     }{//[+·· ···+··· ···+··· ···+··· ···+··· ···+···|···+··· ···+··· ···+··· ···+··· ···+··· ···+],
         [t      n       $      '{'     '}'      %       @       |      '`'      #     '\''      t],
