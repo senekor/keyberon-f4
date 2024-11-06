@@ -132,10 +132,21 @@ module plate() {
      }
 }
 
+module hack() {
+    // same as framework 13
+    width=296.63;
+    case_thichness=3;
+    case_depth=switch_depth+case_thichness;
+    x_offset=112.5;
+    translate([x_offset,-61.64,-case_depth]) linear_extrude(case_thichness) rounded_square([width/2-x_offset,100], r=2);
+    y=77.407;
+    translate([30,-y,-case_depth]) linear_extrude(case_thichness) rounded_square([width/2-30,y], r=2);
+}
+
 module case() {
      difference() {
           union() {
-               case_thichness=1.6;
+               case_thichness=3;
                case_depth=switch_depth+case_thichness;
                difference() {
                     translate([0,0,-case_depth]) linear_extrude(case_thichness) outline(case_border, r=rounding);
@@ -148,6 +159,9 @@ module case() {
                     translate([0,0,-switch_depth]) cylinder(d=8.8, h=switch_depth-thickness);
                }
                translate([-6,16.2,0.6-case_depth]) cube([12,1,3.4]);
+               // ugly, but better stability on knees
+               hack();
+               scale([-1,1,1]) hack();
           }
           // screw holes
           screw_placement() {
