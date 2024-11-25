@@ -38,9 +38,9 @@ pub static LAYERS: keyberon::layout::Layers<12, 4, 4, ()> = keyberon::layout::la
         [t      n     PgUp      n    PgDown     n      '_'      -       ,       .       /       t],
         [t      t       t       t       t       t       t       t       t       t       t       t],
     }{//[+·· ···+··· ···+··· ···+··· ···+··· ···+···|···+··· ···+··· ···+··· ···+··· ···+··· ···+],
-        [F1    F2      F3      F4      F5      F6      F7      F8      F9      F10     F11    F12],
-        [t    LShift  LCtrl    LAlt    LGui     n       n      LGui    LAlt   LCtrl   LShift    t],
-        [t      n       n       n       n       n       n       n       n       n       n       t],
+        [t     F9      F10     F11     F12      n       n       n       n       n       n       n],
+        [t     F5      F6      F7      F8       n       n      LGui    LAlt   LCtrl   LShift    t],
+        [t     F1      F2      F3      F4       n       n       n       n       n       n       t],
         [t      t       t       t       t       t       t       t       t       t       t       t],
     } //[+·· ···+··· ···+··· ···+··· ···+··· ···+···|···+··· ···+··· ···+··· ···+··· ···+··· ···+],
 };
