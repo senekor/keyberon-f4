@@ -46,8 +46,8 @@ mod app {
 
     #[local]
     struct Local {
-        matrix: Matrix<AnyPin<Input>, AnyPin<Output<PushPull>>, 13, 4>,
-        debouncer: Debouncer<[[bool; 13]; 4]>,
+        matrix: Matrix<AnyPin<Input>, AnyPin<Output<PushPull>>, 12, 4>,
+        debouncer: Debouncer<[[bool; 12]; 4]>,
         layout: Layout<12, 4, 4, ()>,
         timer: timer::CounterHz<pac::TIM3>,
     }
@@ -100,7 +100,7 @@ mod app {
                 gpioa.pa6.into_pull_up_input().erase(),
                 gpioa.pa7.into_pull_up_input().erase(),
                 gpiob.pb0.into_pull_up_input().erase(),
-                gpiob.pb1.into_pull_up_input().erase(),
+                // gpiob.pb1.into_pull_up_input().erase(),
                 gpiob.pb10.into_pull_up_input().erase(),
                 gpioa.pa0.into_pull_up_input().erase(),
             ],
@@ -116,8 +116,8 @@ mod app {
             Shared { usb_dev, usb_class },
             Local {
                 timer,
-                debouncer: Debouncer::new([[false; 13]; 4], [[false; 13]; 4], 5),
-                matrix: matrix,
+                debouncer: Debouncer::new([[false; 12]; 4], [[false; 12]; 4], 5),
+                matrix,
                 layout: Layout::new(&crate::layout::LAYERS),
             },
             init::Monotonics(),
