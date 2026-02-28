@@ -20,6 +20,8 @@ const C_3: Action = hold_tap!(k(LCtrl), Kb3);
 const S_4: Action = hold_tap!(k(LShift), Kb4);
 const S_C: Action = hold_tap!(k(LShift), CapsLock);
 
+const QUIT: Action = Action::MultipleKeyCodes(&[LGui, Q].as_slice());
+
 #[rustfmt::skip]
 pub static LAYERS: keyberon::layout::Layers<12, 4, 4, ()> = keyberon::layout::layout! {
     { //[+·· ···+··· ···+··· ···+··· ···+··· ···+···|···+··· ···+··· ···+··· ···+··· ···+··· ···+],
@@ -33,7 +35,7 @@ pub static LAYERS: keyberon::layout::Layers<12, 4, 4, ()> = keyberon::layout::la
         [t      +       *      '['     ']'    '\\'      ~       -       <       >       ?       t],
         [t      t       t       t       t       t      (3)      t       t       t       t       t],
     }{//[+·· ···+··· ···+··· ···+··· ···+··· ···+···|···+··· ···+··· ···+··· ···+··· ···+··· ···+],
-        [t      n     Home     Up      End      n       5       6       7       8       9       t],
+        [t   {QUIT}   Home     Up      End      n       5       6       7       8       9       t],
         [t    LGui    Left    Down    Right  Delete     0       1     {A_2}   {C_3}   {S_4}     t],
         [t      n     PgUp      n    PgDown     n      '_'      -       ,       .       /       t],
         [t      t       t       t       t       t       t       t       t       t       t       t],
